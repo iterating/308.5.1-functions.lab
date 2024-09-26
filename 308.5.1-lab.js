@@ -128,8 +128,11 @@ console.log(fasterAging(Simba) )
 
 
 // Thought experiment: since the Date object is an object, what would happen if we modified it in the copy of the object created in the second function using setTime() or another method? How could we circumvent potentially undesired behavior? */
+
 console.groupEnd()
 console.group("Pt 4")
+// If we change the date object, it till change the age of the original object. By making a copy of the date object, we will keep the original date object
+
 /* 
 Part 4: Thinking Practically
 Practical application of these concepts varies greatly in industry, but the core foundations are the same: functions handle repeated, specialized tasks, and methods are functions attached to specific types of objects.
