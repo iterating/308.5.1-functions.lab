@@ -78,7 +78,7 @@ console.log(mapped(csvData))
 // Use the reduce method to calculate the sum of the ages.
 
 let sumAge = (inputArray) => inputArray.reduce((sum, person) => sum + parseInt(person.age), 0 )
-console.log(`The sum of the agee is ` + sumAge(csvData))
+console.log(`The sum of the ages is ` + sumAge(csvData))
 
 
 // Then use the result to calculate the average age. 
@@ -113,13 +113,15 @@ console.log(incrementAge(Simba))
 // For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
 
 // Take an object, make a copy, and increment the age field of the copy. Return the copy.
+
+let originalDate = new Date();
 function fasterAging(kitten){
     let cheetahKitten = { ...kitten };
     if (typeof cheetahKitten.age !== "number"){
         cheetahKitten.age = 0;
     }
     cheetahKitten.age += 2
-    cheetahKitten.updated_at = new Date();
+    cheetahKitten.updated_at = originalDate;
     return cheetahKitten
 }
 
