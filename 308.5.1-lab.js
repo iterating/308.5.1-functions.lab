@@ -67,7 +67,7 @@ console.log( ageFiltered(csvData) )
     
 // Map the array to change the “occupation” key to “job” and increment every age by 1.
 
-/// need ...rest to skip the rest of the key pairs in the mapping
+/// need ...rest to skip the rest of the key pairs in the mapping. Why??
 let mapped = (inputArray) => inputArray.map(({ occupation, age, ...rest }) => ({
     ...rest, 
     job: occupation,
@@ -93,14 +93,47 @@ Part 3: Thinking Critically
 It is important to remember that when working with objects in JavaScript, we can either pass those objects into functions by value or by reference. This important distinction changes the way that functions behave, and can have large impacts on the way a program executes.
 For this section, develop functions that accomplish the following:
 Take an object and increment its age field.
-Take an object, make a copy, and increment the age field of the copy. Return the copy.
-For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
-Thought experiment: since the Date object is an object, what would happen if we modified it in the copy of the object created in the second function using setTime() or another method? How could we circumvent potentially undesired behavior? */
+*/
+let Simba = {
+    color : 'tabby', 
+    age : 1 ,
+}
+
+function incrementAge(kitten){
+    if (typeof kitten.age !=="number"){
+        kitten.age = 0;
+    }
+    kitten.age += 1;
+    kitten.updated_at = new Date();
+    return kitten
+}
+
+console.log(incrementAge(Simba))
+
+// For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
+
+// Take an object, make a copy, and increment the age field of the copy. Return the copy.
+function fasterAging(kitten){
+    let cheetahKitten = { ...kitten };
+    if (typeof cheetahKitten.age !== "number"){
+        cheetahKitten.age = 0;
+    }
+    cheetahKitten.age += 2
+    cheetahKitten.updated_at = new Date();
+    return cheetahKitten
+}
+
+console.log(fasterAging(Simba) )
+
+
+
+// Thought experiment: since the Date object is an object, what would happen if we modified it in the copy of the object created in the second function using setTime() or another method? How could we circumvent potentially undesired behavior? */
 console.groupEnd()
 console.group("Pt 4")
 /* 
 Part 4: Thinking Practically
 Practical application of these concepts varies greatly in industry, but the core foundations are the same: functions handle repeated, specialized tasks, and methods are functions attached to specific types of objects.
+
 The Skills-Based Assessment (SBA) for this module will have you work on a real-world example that employs all of the tools you have learned thus far. To prepare for it, revisit your previous work as described below. */
 console.groupEnd()
 console.group("Pt 5")
